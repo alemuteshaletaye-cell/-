@@ -3292,7 +3292,7 @@ async function googleSignIn() {
   const err = document.getElementById('pin-error');
   try {
     await firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  } catch (e) { err.textContent = '❌ መግባት አልተሳካም: ' + (e.code || e.message); err.classList.remove('hidden'); return; }
+  } catch (e) { err.textContent = '❌ መግባት አልተሳካም: ' + (e.code || e.message) + ' — ዶሜይን: ' + (location.hostname || location.protocol); err.classList.remove('hidden'); return; }
   authUser = firebase.auth().currentUser;
   if (canAccess(pinTarget)) { err.classList.add('hidden'); document.getElementById('modal-pin').classList.add('hidden'); switchTab(pinTarget); }
   else {
